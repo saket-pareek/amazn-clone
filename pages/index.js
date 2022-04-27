@@ -7,7 +7,7 @@ export default function Home({ products }) {
   return (
     <div className="bg-gray-100">
       <Head>
-        <title>Amzon Clone by Saket</title>
+        <title>Amazn Clone - Saket</title>
       </Head>
       <Header />
       <main className="max-w-screen-2xl mx-auto">
@@ -19,7 +19,9 @@ export default function Home({ products }) {
 }
 
 export async function getServerSideProps(context) {
-  const products = await fetch("https://fakestoreapi.com/products").then((res) => res.json());
+  const res = await fetch("https://fakestoreapi.com/products");
+  const products = await res.json();
+
   return {
     props: { products },
   };
